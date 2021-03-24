@@ -3,16 +3,13 @@ import random
 
 # Funcion de generacion de poblacion.
 
-def poblacion(z):
-    reynas = np.zeros([0, 8, z])
+def posicion(x, y, z):   # marca en cual fila se encuentra una reyna
+    reyna = np.zeros([1, 8, z])
     for n in range(0, z):
-        for m in range(0,8):
-            posicion = random.randrange(8)
-            reynas[0, m, n] = posicion
-            print(reynas)
-    return reynas
+        for i in range(8):
+            p = random.randrange(8)
+            reyna[0, i, n] = p
+    return reyna
 
-poblacion(8)
-reynas = np.zeros([0, 8, 1])
-print(reynas)
-
+poblacion = posicion(1,8,10)
+print(poblacion[:,:,2])
