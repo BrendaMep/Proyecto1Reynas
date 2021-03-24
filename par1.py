@@ -4,12 +4,13 @@ import random
 # Funcion de generacion de poblacion.
 
 def posicion(x, y, z):   # marca en cual fila se encuentra una reyna
-    reyna = np.zeros([1, 8, z])
+    reyna = np.zeros([x, y, z])
     for n in range(0, z):
-        for i in range(8):
-            p = random.randrange(8)
-            reyna[0, i, n] = p
+        for i in range(y):
+            columna = random.randrange(y)   #nos dice en cual columna se encuentra
+            reyna[x-1, i, n] = columna
     return reyna
 
-poblacion = posicion(1,8,10)
-print(poblacion[:,:,2])
+posicion(1, 8, 50)
+poblacion = posicion(1,8,50)
+
