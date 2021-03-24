@@ -4,7 +4,7 @@ import random
 # Funcion de generacion de poblacion.
 
 def posicion(x, y, z):   # marca en cual columna se encuentra una reyna
-    reyna = np.zeros([x, y, z])
+    reyna = np.zeros((x, y))
     for n in range(0, z):
         for i in range(y):
             columna = random.randrange(y)   #nos da una columna aleatoria en la que encontrara la reina
@@ -13,5 +13,5 @@ def posicion(x, y, z):   # marca en cual columna se encuentra una reyna
 
 posicion(1, 8, 50)
 poblacion = posicion(1,8,50)
-
+print(poblacion[:,:,37])
 #Funcion seleccion de padres metodo Sobrante estocastico
