@@ -13,9 +13,10 @@ def mut_insercion(hijo):
         posicion2 = random.randrange(8)
 
     minimo = min(posicion1, posicion2)
+    maximo = max(posicion1, posicion2)
     for i in range(0, minimo):
-        matrix_zeros[0,i] = mutado[0, i]
-
-
+        matrix_zeros[0, i] = mutado[i]
+    print(matrix_zeros[:,:])
+    for i in range(minimo, maximo)
 m = np.array([0,1,2,3,4,5,6,7])
 mut_insercion(m)
