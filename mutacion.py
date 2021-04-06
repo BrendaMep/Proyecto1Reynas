@@ -6,7 +6,16 @@ import random
 def mut_insercion(hijo):
     mutado = hijo
     matrix_zeros = np.zeros((1,8))
-    posicion1 = random.randrange(8) # nos dara el numero de una columna al azar.
+    posicion1 = random.randrange(7) # nos dara el numero de una columna al azar.
     posicion2 = random.randrange(8)
 
+    if posicion2 == posicion1:
+        posicion2 = random.randrange(8)
 
+    minimo = min(posicion1, posicion2)
+    for i in range(0, minimo):
+        matrix_zeros[0,i] = mutado[0, i]
+
+
+m = np.array([0,1,2,3,4,5,6,7])
+mut_insercion(m)
