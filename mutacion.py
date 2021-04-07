@@ -27,12 +27,14 @@ def mut_insercion(hijo):
             matrix_zeros[0, i] = mutado[i]
         for i in range(posicion1, posicion1 + 1):
             matrix_zeros[0, i] = mutado[i]
+        for i in range(posicion1 + 1, 8):
+            matrix_zeros[0, i] = mutado[i]
         for i in range(posicion1 + 1, posicion1 + 2):
             matrix_zeros[0, i] = mutado[posicion2]
         for i in range(posicion2 + 1, posicion1):
             matrix_zeros[0, i] = mutado[i]
-        for i in range(posicion1 + 1, 8):
-            matrix_zeros[0, i - posicion2 - 1] = mutado[i]
+        for i in range(posicion1 + 1, posicion1 + 2):
+            matrix_zeros[0, posicion2] = mutado[i]
         hijo_mut = matrix_zeros
         print(hijo_mut)
 
