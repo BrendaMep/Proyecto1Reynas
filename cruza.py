@@ -1,8 +1,8 @@
 # Cruza a los extremos.
 import random
 import numpy as np
-ale_inicial = random.randrange(8)
 
+poblacion = np.empty((50,8))
 def cruza_ext(p1,p2):
     for i in range(8):
         for j in range(8):
