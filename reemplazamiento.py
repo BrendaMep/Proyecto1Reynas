@@ -7,9 +7,9 @@ def reemplazamiento(hijo1, hijo2):
     count1 = 0
     count2 = 0
     for i in range(8):
-        if hijo1[i] == rein[i]:
+        if hijo1[0,i] == rein[i]:
             count1 += 1
-        if hijo2[i] == rein[i]:
+        if hijo2[0,i] == rein[i]:
             count2 +=1
 
     maximo = max(count1,count2)
@@ -21,5 +21,4 @@ def reemplazamiento(hijo1, hijo2):
         cambio = random.randrange(50)
         poblacion[cambio,:] = hijo2
         print(cambio)
-
 

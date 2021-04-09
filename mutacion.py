@@ -49,4 +49,6 @@ def mut_insercion(hijo):
 
 
 m = np.array([0,1,2,3,4,5,6,7])
+p = mut_insercion(m)
 print(mut_insercion(m))
+print(p[1])
