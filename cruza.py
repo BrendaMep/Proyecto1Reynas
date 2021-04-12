@@ -2,23 +2,27 @@
 import random
 import numpy as np
 
-poblacion = np.empty((50,8))
-def cruza_ext(p1,p2):
+def cruza_ext(padre1,padre2):
+    elemen = [1, 2, 3, 4, 5, 6, 7, 8]
     for i in range(8):
-        for j in range(8):
-            if i in range(7) or j in range(8):
-                if j in range(7):
-                    if p1[i] == p2[j]:
-                        elemen = np.array([p1[i - 1], p1[i + 1], p2[p1[j] - 1], p2[p1[j] + 1]])
-                        print(elemen)
-                if j == 7 and p1[i] == p2[j]:
-                    elemen = np.array([p1[i - 1], p1[i + 1], p2[6], p2[0]])
+        if i in range(7):
+            for j in range(8):
+                if j in range(7) and padre1[i] == padre2[j]:
+                    elemen[i] = [padre1[i - 1], padre1[i + 1], padre2[j - 1], padre2[j + 1]]
                     print(elemen)
-            if i == 7 and j in range(8):
-                if p1[i] == p2[j]:
-                    elemen = np.array([p1[6], p1[0], p2[p1[j] - 1], p2[p1[j] + 1]])
+                if j == 7 and padre1[i] == padre2[j]:
+                    elemen[i] = [padre1[i - 1], padre1[i + 1], padre2[j - 1], padre2[0]]
+                    print(elemen)
+        else:
+            for j in range(8):
+                if j in range(7) and padre1[i] == padre2[j]:
+                    elemen[i] = [padre1[6], padre1[0], padre2[j - 1], padre2[j + 1]]
+                    print(elemen)
+                if padre1[7] == padre2[7]:
+                    elemen[i] = [padre1[6], padre1[0], padre2[6], padre2[0]]
                     print(elemen)
 
-p1 = np.array([0,1,2,3,4,5,6,7])
-p2 = np.array([1,4,2,7,0,3,6,5])
+
+p1 = np.array([7,1,2,3,4,5,6,0])
+p2 = np.array([1,4,3,7,0,2,6,5])
 cruza_ext(p1,p2)

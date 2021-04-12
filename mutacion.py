@@ -46,9 +46,3 @@ def mut_insercion(hijo):
             matrix_zeros[0, posicion2] = mutado[i]
         mutado = matrix_zeros
         return mutado
-
-
-m = np.array([0,1,2,3,4,5,6,7])
-p = mut_insercion(m)
-print(mut_insercion(m))
-print(p[1])
