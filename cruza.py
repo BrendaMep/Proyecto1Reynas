@@ -2,8 +2,9 @@
 import random
 import numpy as np
 
-def cruza_ext(padre1,padre2):
-    tabla = [[0],[1],[2],[3],[4],[5],[6],[7]]
+
+def cruza_ext(padre1, padre2):
+    tabla = [[0], [1], [2], [3], [4], [5], [6], [7]]
     for i in range(8):
         if i in range(7):
             for j in range(8):
@@ -25,20 +26,19 @@ def cruza_ext(padre1,padre2):
     current_element = random.randrange(8)
     print(current_element)
     cruza = []
-    remover = [[0],[1],[2],[3],[4],[5],[6],[7]]
+    remover = [[0], [1], [2], [3], [4], [5], [6], [7]]
     for i in range(8):
         remover[i] = list(tabla_extremos[i])
-        if padre1[i] == current_element:
-            print(tabla_extremos[i])
-            cruza.append(current_element)
-            print(cruza)
         if current_element in remover[i]:
             remover[i].remove(current_element)
             if current_element in remover[i]:
                 remover[i].remove(current_element)
-                print(remover[i])
-            else:
-                print(remover[i])
+        if padre1[i] == current_element:
+            print(tabla_extremos[i])
+            cruza.append(current_element)
+            print(cruza)
+            for padre1[i] in tabla_extremos[i]:
+                print(remover[padre1[i]])
 
 
 p1 = np.array([7,1,2,3,4,5,6,0])
