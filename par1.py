@@ -11,5 +11,6 @@ for i in range(50):
 
 
 hijo1 = poblacion[36,:]
+print(hijo1)
 hijo2 = poblacion[12,:]
-
+print(hijo2)
