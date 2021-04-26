@@ -25,6 +25,7 @@ def cruza_ext(padre1,padre2):
     print(current_element)
     cruza = []
     lista = ([0, 1, 2, 3, 4, 5, 6, 7])
+    lista.pop(current_element)
 
     for i in range(8):
         if current_element in tabla_extremos[i]:
@@ -34,18 +35,46 @@ def cruza_ext(padre1,padre2):
 
     newtab_ext = tabla_extremos
     print(newtab_ext)
+
+    def intersect(a, b):
+        return list(set(a) & set(b))
+
     for i in range(8):
-        lista = []
+        lista2 = []
+        num =[]
         if padre1[i] == current_element:
             cruza.append(current_element)
             for j in newtab_ext[i]:
-                print(newtab_ext[j])
-                #num = [x for x in newtab_ext[j] if x in newtab_ext[j]]
-                #print(num)
+                lista2.append(newtab_ext[j])
+            print(lista2)
+            m = set(lista2[0])
+            for k in range(1,len(lista2)):
+                n = set(lista2[k])
+                m = intersect(m,n)
+            if len(m) != 0:
+                for x in m:
+                    cruza.append(x)
+                    lista.pop(x)
+                    current_element = random.choice(lista)
+            else:
+                for k in range(len(lista2)):
+                    num.append(len(lista2[k]))
+                    minimo = min(num)
+                    if minimo == len(lista2[k]):
+                        print(lista2[k])
+                print(num)
 
     print(cruza)
+    return current_element
+
+
+
+
+
+
 
 
 p1 = np.array([7,1,2,3,4,5,6,0])
 p2 = np.array([1,4,3,7,0,2,6,5])
 cruza_ext(p1,p2)
+
