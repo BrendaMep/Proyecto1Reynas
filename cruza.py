@@ -73,7 +73,6 @@ def cruza_ext(padre1,padre2):
 
 
 
-
 p1 = np.array([7,1,2,3,4,5,6,0])
 p2 = np.array([1,4,3,7,0,2,6,5])
 cruza_ext(p1,p2)
