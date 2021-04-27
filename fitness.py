@@ -11,9 +11,3 @@ def fitness(poblacion):
             if con1 == con2:
                 conteo +=1
     return conteo
-
-Aptitud = ([])
-for i in range(50):
-    Aptitud.append(fitness(poblacion[i,:]))
-maximo = max(Aptitud)
-print(maximo)
