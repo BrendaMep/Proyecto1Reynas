@@ -32,7 +32,6 @@ def cruza_ext(padre1,padre2):
             tabla_extremos[i].remove(current_element)
             if current_element in tabla_extremos[i]:
                 tabla[i].remove(current_element)
-
     newtab_ext = tabla_extremos
     print(newtab_ext)
 
@@ -40,8 +39,13 @@ def cruza_ext(padre1,padre2):
         return list(set(a) & set(b))
 
     for i in range(8):
-        lista2 = []
-        num =[]
+        print(current_element)
+        cruza = []
+        lista = ([0, 1, 2, 3, 4, 5, 6, 7])
+        lista.pop(current_element)
+        lista2 = ([])
+        lista3 = ([])
+        num = ([])
         if padre1[i] == current_element:
             cruza.append(current_element)
             for j in newtab_ext[i]:
@@ -61,11 +65,17 @@ def cruza_ext(padre1,padre2):
                     num.append(len(lista2[k]))
                     minimo = min(num)
                     if minimo == len(lista2[k]):
-                        print(lista2[k])
+                        lista3.append(lista2[k])
+                        if len(lista3) != 1:
+                             current_element = random.choice(lista)
+                        else:
+                            current_element = random.choice(lista2[k])
                 print(num)
-
+            newtab_ext.remove(newtab_ext[i])
+            print(newtab_ext)
+            return
     print(cruza)
-    return current_element
+    return cruza
 
 
 

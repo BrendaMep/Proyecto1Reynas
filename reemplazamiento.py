@@ -21,4 +21,5 @@ def reemplazamiento(hijo1, hijo2):
         cambio = random.randrange(50)
         poblacion[cambio,:] = hijo2
         print(cambio)
+    return count1, count2
 
