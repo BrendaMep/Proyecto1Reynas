@@ -1,24 +1,6 @@
 import numpy as np
 import random
 
-lista = [0, 1, 2, 3, 4, 5, 6, 7] # son los valores en los que puede estar la reyna
-poblacion = np.empty((50,8))
-for i in range(50):
-    random.shuffle(lista)
-    for j in range(8):
-        poblacion[i, j] = lista[j]
-    #print(poblacion[i,:])
-
-def fitness(conjunto):
-    conteo = 0
-    for i in range(8):
-        for j in range(i+1, 8):
-            con1 = np.abs(conjunto[i]- conjunto[j])
-            con2 = np.abs(i - j)
-            if con1 == con2:
-                conteo +=1
-    return conteo
-
 # seleccion de padres
 def selec_padres(conjunto):
     r1 = random.random()
@@ -48,7 +30,8 @@ def selec_padres(conjunto):
         if prob_acomulada[i]>= r2:
             posibles_papas.append(conjunto[i])
     papa2 = posibles_papas[0]
-    return Aptitud
+    return papa1,papa2
 
 
 selec_padres(poblacion)
+
