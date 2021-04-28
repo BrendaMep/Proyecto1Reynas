@@ -1,6 +1,7 @@
 import random
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 
  # Genera la población
@@ -151,6 +152,12 @@ def gener_po(num_generacion):
                                    'coliciones promedio': [promedio]})
             print(tabla2)
             poblacion = reemplazamiento(n)
+            plt.plot(x)  # Dibuja el gráfico
+            plt.title("Mejor individuo")  # Establece el título del gráfico
+            plt.xlabel("generaciones")  # Establece el título del eje x
+            plt.ylabel("coliciones")  # Establece el título del eje y
+            plt.plot(x)
+            plt.show()
         return poblacion
 
 
