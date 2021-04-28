@@ -9,8 +9,3 @@ for i in range(50):
     for j in range(8):
         poblacion[i, j] = lista[j]
 
-
-hijo1 = poblacion[36,:]
-print(hijo1)
-hijo2 = poblacion[12,:]
-print(hijo2)
