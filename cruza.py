@@ -1,7 +1,12 @@
 import random
 import numpy as np
 
+
+def intersect(a, b):
+    return list(set(a) & set(b))
+
 def cruza_ext(padre1,padre2):
+    # construccion de tabla de extremos
     tabla = ([[0],[1],[2],[3],[4],[5],[6],[7]])
     for i in range(8):
         if i in range(7):
@@ -18,15 +23,13 @@ def cruza_ext(padre1,padre2):
 
                 if padre1[7] == padre2[7]:
                     tabla[i] = [padre1[6], padre1[0], padre2[6], padre2[0]]
-
     tabla_extremos = tabla
     print(tabla_extremos)
-    current_element = random.randrange(8)
+    lista = ([0, 1, 2, 3, 4, 5, 6, 7])
+    current_element = random.choice(lista)
     print(current_element)
     cruza = []
-    lista = ([0, 1, 2, 3, 4, 5, 6, 7])
-    lista.pop(current_element)
-
+    cruza.append(current_element)
     for i in range(8):
         if current_element in tabla_extremos[i]:
             tabla_extremos[i].remove(current_element)
@@ -35,14 +38,7 @@ def cruza_ext(padre1,padre2):
     newtab_ext = tabla_extremos
     print(newtab_ext)
 
-    def intersect(a, b):
-        return list(set(a) & set(b))
-
-    for i in range(8):
-        print(current_element)
-        cruza = []
-        lista = ([0, 1, 2, 3, 4, 5, 6, 7])
-        lista.pop(current_element)
+    for i in range(len(newtab_ext)):
         lista2 = ([])
         lista3 = ([])
         num = ([])
@@ -73,8 +69,6 @@ def cruza_ext(padre1,padre2):
                 print(num)
             newtab_ext.remove(newtab_ext[i])
             print(newtab_ext)
-            return
-    print(cruza)
     return cruza
 
 
