@@ -88,8 +88,45 @@ Para esta parte se tuvo algunos problemas, crei que
 podia resolverlos yo sola y no fue asi :(
 
 ##Mutacion.
-En esta etapa se utilizo la mutacion por inseccion
-la cual  consiste lo siguiente:
+En esta etapa se utilizo la mutacion por insercion
+Una inserción es un tipo de mutación que implica 
+la adición de material genético. Una mutación 
+por inserción puede ser pequeña e involucrar 
+un único par de bases de ADN, o grande e 
+involucrar un fragmento de un cromosoma.
+----
+Se mencionara los pasos que se realizaron:
 
     -1 Seleccionar al azar dos posiciones del hijo
-    mutado 
+    que vamos a mutar, posicion1 y posicion2.
+
+    -2 Se crea un vector vacio, en cual se le van
+    a ir agregando los elementos del hijo a mutar
+
+    -3 Para todos los elementos que esten antes o iguales que
+    la posicion1 se agregan a al cevtor vacio.
+    
+    -4 Al vector vacio se le agrega el elemento de
+    posicion2
+
+    -5 Si existen elementos entre posicion1 y posicion2
+    se agragan
+
+    -6 Por ultimo se agregan los elemenos que estan despues
+    de posicion2.
+
+## Remplazamiento
+Para el remplazamiento se utilizo el metodo 
+de Elitismo, se creo una nueva poblacion que 
+constaba de 52 elementos, despues se ordenaron
+de menor a mayor  de acuerdo a las colisiones que tuviera 
+cada elemento de la nueva poblacion.
+---
+Una vez ordenados de forma creciente, solo se seleccionan
+los primeros 50 elementos , dejando asi los peores elementos
+de la nueva poblacion.
+---------------
+Al estar realizando este reemplazamiento, nos garantiza
+que la convergencia al individuo ideal sea mas rapido, 
+ya que siempre nos quedamos con solos los individuos que 
+tienen menor colisiones.
