@@ -21,6 +21,7 @@ def fitness(conjunto):
 
 hij1 = ([0,1,2,3,7,6,5,4])
 hij2 = ([7,4,1,0,5,2,6,3])
+print(len(hij1))
 
 def reemplazamiento(hijo1, hijo2):
     nueva_pobl = poblacion
