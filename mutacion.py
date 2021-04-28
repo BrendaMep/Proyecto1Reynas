@@ -2,12 +2,15 @@ import numpy as  np
 import random
 
 # mutacion por insercion
+
 def mut_insercion(hijo):
     mutado = hijo
     matrix_zeros = ([])
     posicion1 = random.randrange(7) # nos dara el numero de una columna al azar.
     posicion2 = random.randrange(8)
-    print(posicion1,posicion2)
+    if posicion1 == posicion2:
+        posicion1 = random.randrange(7)
+    posicion1 = posicion1
             # aqui comienza la mutacion.
     if posicion1 < posicion2:
         for i in range(0,posicion1+1):
