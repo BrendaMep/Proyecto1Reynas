@@ -63,16 +63,16 @@ entre [0,1), para poder seleccionar los padres.
 Para este algoritmo se utilizaria el metodo de cruza
 de extremos, el cual consiste en:
 
--Crear una tabla de extremos
+-1.Crear una tabla de extremos
 
--Creamos un individuo vacio llamado cruza
+-2.Creamos un individuo vacio llamado cruza
 
--Se elige aleatoriamente un extremo que llamamos
+-3.Se elige aleatoriamente un extremo que llamamos
 curre_element y se le agrega a cruza
 
--Removemos el curre-.element de dotas las listas.
+-4.Removemos el curre-.element de dotas las listas.
 
--Examinamos la lista que le corresponde a 
+-5.Examinamos la lista que le corresponde a 
 curre_element, dentro de este paso se realiza lo 
 siguiente.
 
@@ -80,6 +80,16 @@ siguiente.
     seleccionamos a curre_element como ese elemento.
     -De otro modo de selecciona como curre_element
     la entrada con la lista mas pequeña
--
+    -Se selecciona como curre_element un numero 
+    aleatorio (3)
+    -Terminamos al encontrar un curre_element en 
+    una lista vacia y el tamaño del hijo es 8 
+Para esta parte se tuvo algunos problemas, crei que
+podia resolverlos yo sola y no fue asi :(
 
-######H6 header
+##Mutacion.
+En esta etapa se utilizo la mutacion por inseccion
+la cual  consiste lo siguiente:
+
+    -1 Seleccionar al azar dos posiciones del hijo
+    mutado 
