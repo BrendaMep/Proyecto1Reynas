@@ -8,6 +8,7 @@ for i in range(50):
     random.shuffle(lista)
     for j in range(8):
         poblacion[i, j] = lista[j]
+print(poblacion)
 
 def fitness(individuo): # cada elemento de la poblacion
     conteo = 0

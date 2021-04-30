@@ -2,6 +2,9 @@ import random
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from FuncionSeleccionPadres import selec_padres
+from FuncionFitnes import fitness
+from FuncionMutacion import mut_insercion
 
 
  # Genera la población
@@ -11,87 +14,22 @@ for i in range(50):
     random.shuffle(lista)
     for j in range(8):
         poblacion[i, j] = lista[j]
-#Seleccion de padres
 
-def fitness(conjunto):
-    conteo = 0
-    for i in range(8):
-        for j in range(i+1, 8):
-            con1 = np.abs(conjunto[i]- conjunto[j])
-            con2 = np.abs(i - j)
-            if con1 == con2:
-                conteo +=1
-    return conteo
-
-# seleccion de padres
-def selec_padres(conjunto):
-    r1 = random.random()
-    r2 = random.random()
-    Aptitud = ([])
-    A_norm = ([])
-    probabilidad = ([])
-    prob_acomulada = ([])
-    posibles_papas = ([])
-    for i in range(50):
-        Aptitud.append(fitness(conjunto[i, :]))   # contiene todos los ataques
-    maximo = max(Aptitud)                         # es el que tiene mas ataques
-    for i in range(50):
-        A_norm.append(Aptitud[i]-maximo)
-    suma = sum(A_norm)
-    for i in range(50):
-        probabilidad.append(A_norm[i]/ suma)   # probabilidad de cada individuo de la población
-    prob_acomulada = probabilidad
-    for i in range(1,50):
-        prob_acomulada[i] = prob_acomulada[i] + prob_acomulada[i-1]
-    for i in range(50):
-        if prob_acomulada[i]>= r1:
-            posibles_papas.append(conjunto[i])
-    papa1 = posibles_papas[0]
-    posibles_papas = ([])
-    for i in range(50):
-        if prob_acomulada[i]>= r2:
-            posibles_papas.append(conjunto[i])
-    papa2 = posibles_papas[0]
-    return papa1,papa2
 padres =selec_padres(poblacion)
 padre1 = padres[0]
 padre2 = padres[1]
 
+# SE cruza
+
+
 #Aqui se muta
 
-def mut_insercion(hijo):
-    mutado = hijo
-    matrix_zeros = ([])
-    posicion1 = random.randrange(7) # nos dara el numero de una columna al azar.
-    posicion2 = random.randrange(8)
-    if posicion1 == posicion2:
-        posicion1 = random.randrange(7)
-    posicion1 = posicion1
-            # aqui comienza la mutacion.
-    if posicion1 < posicion2:
-        for i in range(0,posicion1+1):
-            matrix_zeros.append(mutado[i])
-        for i in range(posicion2, posicion2+1):
-            matrix_zeros.append(mutado[i])
-        for i in range(posicion1+1,posicion2):
-            matrix_zeros.append((mutado[i]))
-        for i in range(posicion2+1,8):
-            matrix_zeros.append(mutado[i])
-    if posicion2 < posicion1:
-        for i in range(0,posicion2):
-            matrix_zeros.append(mutado[i])
-        for i in range(posicion1,posicion1+1):
-            matrix_zeros.append(mutado[i])
-        for i in range(posicion2,posicion2+1):
-            matrix_zeros.append(mutado[i])
-        for i in range(posicion2+1,posicion1):
-            matrix_zeros.append(mutado[i])
-        for i  in range(posicion1+1, 8):
-            matrix_zeros.append(mutado[i])
-    mutado = matrix_zeros
-    return mutado
 
 # aqui se reemplaza
+hij1= mut_insercion(padre1)
+hij2 = mut_insercion(padre2)
+
+
 
 def reemplazamiento(num_generacion):
     hijo1 = mut_insercion(padre1)
