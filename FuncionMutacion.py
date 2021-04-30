@@ -1,4 +1,4 @@
-import numpy as  np
+import numpy as np
 import random
 
 # mutacion por insercion
@@ -11,6 +11,7 @@ def mut_insercion(hijo):
     if posicion1 == posicion2:
         posicion1 = random.randrange(7)
     posicion1 = posicion1
+    print(posicion1,posicion2)
             # aqui comienza la mutacion.
     if posicion1 < posicion2:
         for i in range(0,posicion1+1):
