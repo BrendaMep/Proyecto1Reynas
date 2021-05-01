@@ -17,4 +17,5 @@ def reemplazamiento(num_generacion):
         for i in range(50):
             if lista_fitness[i] == fitness(pob_revuelta[j, :]):
                 lis_remover[i] = pob_revuelta[j]
+
     return lis_remover

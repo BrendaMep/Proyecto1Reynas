@@ -1,6 +1,6 @@
 import numpy as np
 import random
-from FuncionFitnes import fitness
+from FuncionAptitud import fitness
 
 
 lista = [0, 1, 2, 3, 4, 5, 6, 7] # son los valores en los que puede estar la reyna
@@ -10,7 +10,7 @@ for i in range(50):
     for j in range(8):
         poblacion[i, j] = lista[j]
 
-def selec_padres(conjunto):
+def padres(conjunto):
     r1 = random.random()
     r2 = random.random()
     Aptitud = ([])
@@ -40,8 +40,13 @@ def selec_padres(conjunto):
     papa2 = posibles_papas[0]
     return papa1,papa2
 
-padres =selec_padres(poblacion)
-padre1 = padres[0]
-padre2 = padres[1]
 
-print(padre1,padre2)
+def selec_padres(poblacion):
+    pob_padres = np.empty((100, 8))
+    j =0
+    while j in range(100):
+        papas = padres(poblacion)
+        pob_padres[j]= papas[0]
+        pob_padres[j+1]= papas[1]
+        j = j+2
+    return pob_padres

@@ -11,3 +11,17 @@ def fitness(individuo): # cada elemento de la poblacion
             if con1 == con2:
                 conteo +=1
     return conteo
+
+
+#funcion de aptitud , cada poblacion nos da el mejor
+
+def aptitud(poblacion):
+    lis_fit = ([])
+    for i in range(50):
+        lis_fit.append(fitness(poblacion[i,:]))
+    lis_fit = sorted(lis_fit)
+    mejor_ind = lis_fit[0]
+    return mejor_ind
+
+
+
