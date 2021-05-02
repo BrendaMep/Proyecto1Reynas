@@ -3,10 +3,13 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from FuncionSeleccionPadres import selec_padres
-from FuncionAptitud import fitness
+from FuncionAptitud import peor
 from FuncionAptitud import aptitud
-from FuncionMutacion import mut_insercion
+from FuncionMutacion import muta_insercion
 from FuncionRemplazamiento import reemplazamiento
+from FuncionAptitud import promedio
+import statistics
+from FuncionAptitud import desviacion
 
 
 
@@ -25,9 +28,23 @@ for i in range(50):
     for j in range(8):
         poblacion[i, j] = lista[j]
 
-mejor_ind = aptitud(poblacion)
-m_individuo.append(mejor_ind)
-print(mejor_ind)
+
+for k in range(50):
+    padres = selec_padres(poblacion)   # se da la seleccion de padres
+    #cruza
+    pobl_hijos = muta_insercion()
+    poblacion = reemplazamiento(k)
+
+    mejor = aptitud(poblacion)
+    m_individuo.append(mejor)
+    no_bueno = peor(poblacion)
+    p_individuo.append(no_bueno)
+    media = promedio(poblacion)
+    ind_promedio.append(media)
+    pro_des = desviacion(poblacion)
+    des_estdar.append(pro_des)
 
 
-padres = selec_padres(poblacion)   # se da la seleccion de padres
+# tabla con los datos
+
+

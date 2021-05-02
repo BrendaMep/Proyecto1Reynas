@@ -55,16 +55,18 @@ def cruza_ext(padre1,padre2):
                                     cruza.append(x)
                                     current_element = x
                         else:
-                            for k in range(len(lista2)):
-                                num.append(len(lista2[k]))
-                                minimo = min(num)
-                                if minimo == len(lista2[k]):
-                                    lista3.append(lista2[k])
-                                    if len(lista3) != 1:
-                                         current_element = random.choice(lista)
-                                    else:
-                                       current_element = random.choice(lista)
-                 print(num)
+                            current_element = random.choice(lista)
+
+                            #for k in range(len(lista2)):
+                             #   num.append(len(lista2[k]))
+                              #  minimo = min(num)
+                               # if minimo == len(lista2[k]):
+                                #    lista3.append(lista2[k])
+                                 #   if len(lista3) != 1:
+                                  #       current_element = random.choice(lista)
+                                   # else:
+                                    #   current_element = random.choice(lista)
+                 #print(num)
 
 
         print(cruza)

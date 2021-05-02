@@ -1,16 +1,7 @@
 import numpy as np
 import random
 
-lista = [0, 1, 2, 3, 4, 5, 6, 7] # son los valores en los que puede estar la reyna
-poblacion = np.empty((50,8))
-for i in range(50):
-    random.shuffle(lista)
-    for j in range(8):
-        poblacion[i, j] = lista[j]
-print(poblacion)
 
-
-# mutacion por insercion
 # mutacion por insercion
 def muta_hijo(hijo):
     mutado = hijo
@@ -46,8 +37,7 @@ def muta_hijo(hijo):
 
 
 def muta_insercion(poblacion):
-    pob_muta = np.empty((50,8))
+    pob_muta = np.zeros((50,8))
     for i in range(50):
         pob_muta[i,:] = muta_hijo(poblacion[i,:])
-    print(pob_muta)
     return pob_muta
