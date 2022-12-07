@@ -1,8 +1,8 @@
 ### Proyecto de reinas
-En este proyecto se implementa un algoritmo genetico que deberia 
+En este proyecto se implementa un algoritmo genético que deberia 
 resolver el problema de 0 colisiones entre reinas en un tablero
 de ajedrez. Este esta dividido por etapas, las cuales describiremos
-detalladamente mas adelante.
+detalladamente más adelante.
 ![img_1.png](img_1.png)
 Imagen de las reinas con 0 colisiones.
 
@@ -12,55 +12,55 @@ Imagen de las reinas con 0 colisiones.
 
 [TOC]
 
-#Introduccion
-Sabemos que los algoritmos geneticos son algoritmos de optimización
+#Introducción
+Sabemos que los algoritmos genéticos son algoritmos de optimización
 búsqueda y aprendizaje
 inspirados en los procesos de evolución natural
 y evolución genética.
 ---
- Apartir del problema de las cero coliciones de 8 reinas en un
-tablero de ajedrez, se implemento un algoritmo
-genetico con los procesos de generacion de poblacion,
-seleccion de padres, cruza, mutacion y reemplazamiento
-de la poblacion.
+ A partir del problema de las cero coliciones de 8 reinas en un
+tablero de ajedrez, se implementó un algoritmo
+genético con los procesos de generación de población,
+selección de padres, cruza, mutación y reemplazamiento
+de la población.
 ----
-Acontinuacion se realizo un proceso de 
-50 generaciones para observar la evolucion de los 
-individuos, asi en cada generacion se 
+A continuacion se realizó un proceso de 
+50 generaciones para observar la evolución de los 
+individuos, así en cada generación se 
 escogieron los mejores individuos,
-es decir los que tenian menos coliciones,
+es decir, los que tenian menos coliciones,
 para observar la convergencia hacia el individuo ideal
 de cero coliciones.
 
 ##Proyecto de reinas
 ![img_2.png](img_2.png)
-## Generacion de la poblacion
-Para iniciar se comenzo por crear una poblacion de
-50 elementos los cuales solo nos representan la posicion
+## Generación de la población
+Para iniciar se comenzó por crear una población de
+50 elementos los cuales solo nos representan la posición
 de la columna en la que se encuentran cada una
 de las reinas, cada individuo esta representado 
 como un vector que consta de 8 entradas, 
-representadas con numeros de 0 a 7, sin repeticion
+representadas con números de 0 a 7, sin repetición
 las cuales fueron generadas aleatoriamente.
 
 ##Seleccion de padres.
-Para este algoritmo genetico se la seleccion 
-de padres fue por medio de la ponderacion de 
+Para este algoritmo genético se la selección 
+de padres fue por medio de la ponderación de 
 aptitud, para ello se obtubo las coliciones
 de cada individuo.
 ----
-Una vez obtenidos todos se selecciono el maximo 
-para poder obtener la normalizacion de cada uno
+Una vez obtenidos todos se selecciono el máximo 
+para poder obtener la normalización de cada uno
 la cual esta dada por, la cantidad de coliciones que 
-tiene menos el maximo de todas las coliciones, esto se 
+tiene menos el máximo de todas las coliciones, esto se 
 necesita para poder obtener la probabilidad de ser
 seleccionado y la probabilidad acomulada.
 ----
-Despues se obtuvieron al azar dos numero r1 y r2, 
+Despues se obtuvieron al azar dos número r1 y r2, 
 entre [0,1), para poder seleccionar los padres.
 
 ##Cruza
-Para este algoritmo se utilizaria el metodo de cruza
+Para este algoritmo se utilizaría el método de cruza
 de extremos, el cual consiste en:
 
 -1.Crear una tabla de extremos
@@ -84,11 +84,9 @@ siguiente.
     aleatorio (3)
     -Terminamos al encontrar un curre_element en 
     una lista vacia y el tamaño del hijo es 8 
-Para esta parte se tuvo algunos problemas, crei que
-podia resolverlos yo sola y no fue asi :(
 
 ##Mutacion.
-En esta etapa se utilizo la mutacion por insercion
+En esta etapa se utilizó la mutación por inserción
 Una inserción es un tipo de mutación que implica 
 la adición de material genético. Una mutación 
 por inserción puede ser pequeña e involucrar 
@@ -98,35 +96,35 @@ involucrar un fragmento de un cromosoma.
 Se mencionara los pasos que se realizaron:
 
     -1 Seleccionar al azar dos posiciones del hijo
-    que vamos a mutar, posicion1 y posicion2.
+    que vamos a mutar, posición 1 y posición 2.
 
-    -2 Se crea un vector vacio, en cual se le van
+    -2 Se crea un vector vacío, en cual se le van
     a ir agregando los elementos del hijo a mutar
 
     -3 Para todos los elementos que esten antes o iguales que
-    la posicion1 se agregan a al cevtor vacio.
+    la posición 1 se agregan a al cevtor vacío.
     
-    -4 Al vector vacio se le agrega el elemento de
-    posicion2
+    -4 Al vector vacío se le agrega el elemento de
+    posición 2
 
-    -5 Si existen elementos entre posicion1 y posicion2
+    -5 Si existen elementos entre posición 1 y posición 2
     se agragan
 
-    -6 Por ultimo se agregan los elemenos que estan despues
-    de posicion2.
+    -6 Por último se agregan los elemenos que estan despues
+    de posición 2.
 
 ## Remplazamiento
-Para el remplazamiento se utilizo el metodo 
-de Elitismo, se creo una nueva poblacion que 
-constaba de 52 elementos, despues se ordenaron
+Para el remplazamiento se útilizo el método 
+de Elitismo, se creo una nueva población que 
+constaba de 52 elementos, después se ordenaron
 de menor a mayor  de acuerdo a las colisiones que tuviera 
-cada elemento de la nueva poblacion.
+cada elemento de la nueva población.
 ---
 Una vez ordenados de forma creciente, solo se seleccionan
-los primeros 50 elementos , dejando asi los peores elementos
-de la nueva poblacion.
+los primeros 50 elementos , dejando así los peores elementos
+de la nueva población.
 ---------------
 Al estar realizando este reemplazamiento, nos garantiza
-que la convergencia al individuo ideal sea mas rapido, 
+que la convergencia al individuo ideal sea más rapido, 
 ya que siempre nos quedamos con solos los individuos que 
 tienen menor colisiones.
